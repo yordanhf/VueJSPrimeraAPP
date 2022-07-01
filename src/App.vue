@@ -1,26 +1,29 @@
 <template>
  <div>
   <div id="header"></div>
-  <div id="main-container">
-    <h2>
+  <div id="main-container">  
+
+      <TareasAdd @add-tarea="addTarea" />   
+      <h2>
       Tareas:
-    </h2>
-    <TareasComp v-bind:tareasList="copyTareas" 
-    @eliminar-tarea="borrarTarea"
-    @cambiar-tarea="cambiaTarea" />
+     </h2>  
+      <TareasComp v-bind:tareasList="copyTareas" 
+       @eliminar-tarea="borrarTarea"
+       @cambiar-tarea="cambiaTarea"/>
+
   </div>
  </div>
 </template>
 
 <script>
 //import SearchItem from './components/SearchItem.vue'
-//import TareasAdd from './components/TareasAdd.vue'
+import TareasAdd from './components/TareasAdd.vue'
 import TareasComp from './components/TareasComp.vue'
 
 export default {
   name: 'App',
   components: {  
-      TareasComp 
+      TareasComp, TareasAdd 
   },
   methods:{
     borrarTarea(id){
@@ -34,6 +37,11 @@ export default {
           console.log(tarea.id)
           }
         });
+    },
+    addTarea(tarea){
+      this.tareas.push(tarea);
+      this.copyTareas = [... this.tareas];  
+
     }
   },
   data(){
@@ -95,5 +103,6 @@ body{
 
 h2{
   padding: 0 10px;
+  text-align: center;
 }
 </style>
