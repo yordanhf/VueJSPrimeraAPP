@@ -28,9 +28,13 @@ export default {
       this.copyTareas = [... this.tareas];      
     },
     cambiaTarea(id){
-      console.log(id)
+      this.tareas.forEach(function(tarea) {
+        if (tarea.id == id){
+          tarea.completed = ! tarea.completed;
+          console.log(tarea.id)
+          }
+        });
     }
-
   },
   data(){
     return {
