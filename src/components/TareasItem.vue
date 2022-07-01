@@ -3,7 +3,7 @@
         <div class="tarea-body" v-bind:class="{completed: tarea.completed}">
             <input type="checkbox" 
             :checked="tarea.completed"             
-            @change="cambiaTarea" >
+            @change="$emit('cambiar-tarea', tarea.id)" >
             {{tarea.title}}
         </div>
         <div class="tarea-action">
@@ -15,13 +15,8 @@
 <script>
 export default{
     name: "TareasItem",
-    props: ["tarea"],    
-    methods:{
-        cambiaTarea(){
-            // eslint-disable-next-line vue/no-mutating-props
-           this.tarea.completed = !this.tarea.completed            
-        }
-    }
+    props: ["tarea"]
+    
     
     }
 </script>

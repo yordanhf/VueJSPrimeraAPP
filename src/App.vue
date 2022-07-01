@@ -5,7 +5,9 @@
     <h2>
       Tareas:
     </h2>
-    <TareasComp v-bind:tareasList="copyTareas" @eliminar-tarea="borrarTarea" />
+    <TareasComp v-bind:tareasList="copyTareas" 
+    @eliminar-tarea="borrarTarea"
+    @cambiar-tarea="cambiaTarea" />
   </div>
  </div>
 </template>
@@ -24,6 +26,9 @@ export default {
     borrarTarea(id){
       this.tareas = this.tareas.filter(tarea => tarea.id != id );
       this.copyTareas = [... this.tareas];      
+    },
+    cambiaTarea(id){
+      console.log(id)
     }
 
   },
@@ -79,8 +84,9 @@ body{
 }
 
 #header{
-  background: black;
+  background: rgb(8, 6, 146);
   padding: 10px;
+  width: 100%;
 }
 
 h2{

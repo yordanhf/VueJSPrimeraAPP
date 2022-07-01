@@ -1,7 +1,9 @@
 <template>
     <div>
         <div v-for="tareas in tareasList" v-bind:key="tareas.id" >
-        <TareasItem v-bind:tarea="tareas" @eliminar-tarea="enviarTarea"/>
+        <TareasItem v-bind:tarea="tareas" 
+        @eliminar-tarea="enviarTarea"
+        @cambiar-tarea="enviarId"/>
         </div>
     </div>
 </template>
@@ -16,6 +18,10 @@
         methods:{
             enviarTarea(id){
                 this.$emit('eliminar-tarea', id)
+            },
+            enviarId(id){
+                this.$emit('cambiar-tarea', id)
+              //  console.log(id)
 
             }
         }       
