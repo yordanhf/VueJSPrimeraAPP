@@ -1,9 +1,12 @@
 <template>
  <div>
-  <div id="header"></div>
-  <div id="main-container">  
+  <div id="header">    
+  </div>
 
-      <TareasAdd @add-tarea="addTarea" />   
+  <div id="main-container">    
+      <PruebaTarea @envia-texto="buscarTarea"/>
+      
+      <TareasAdd @add-tarea="addTarea" />        
       <h2>
       Tareas:
      </h2>  
@@ -16,15 +19,17 @@
 </template>
 
 <script>
-//import SearchItem from './components/SearchItem.vue'
 import TareasAdd from './components/TareasAdd.vue'
 import TareasComp from './components/TareasComp.vue'
+import PruebaTarea from './components/PruebaTarea.vue';
 
 export default {
   name: 'App',
-  components: {  
-      TareasComp, TareasAdd 
-  },
+  components: {
+    TareasComp,
+    TareasAdd,
+    PruebaTarea
+},
   methods:{
     borrarTarea(id){
       this.tareas = this.tareas.filter(tarea => tarea.id != id );
@@ -41,7 +46,12 @@ export default {
     addTarea(tarea){
       this.tareas.push(tarea);
       this.copyTareas = [... this.tareas];  
-
+    },
+    buscarTarea(title){
+      this.copyTareas = [... this.tareas];        
+      this.copyTareas = 
+       this.copyTareas.filter(tarea => tarea.title.toString().replace(title,'xxxxxxxx') 
+        != tarea.title );           
     }
   },
   data(){

@@ -21,7 +21,7 @@
             },
             enviarId(id){
                 this.$emit('cambiar-tarea', id)
-              //  console.log(id)
+              
 
             }
         }       
