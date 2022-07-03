@@ -1,8 +1,7 @@
 <template>
     <div id="search-container">
         <label id="label-btarea">Buscar Tarea: </label>
-        <input type="text" v-model="title" @change ="sendText">
-        <button id="buscar-buton" @click ="sendText">Buscar</button>
+        <input type="text" v-model="title" @input ="sendText">
     </div>
 </template>
 
