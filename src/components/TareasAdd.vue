@@ -1,15 +1,15 @@
 <template>
     <div id="add-container">
         <form @submit.prevent="addTarea">
-            <label id="label-tarea">Nueva Tarea:</label>        
+            <label id="label-tarea">Nueva Tarea:</label>
+            <br>            
             <input type="text" v-model="title">
+            <button id="binsertar" @click.prevent="addTarea">Insertar </button>
         </form>
-
-
     </div>
 </template>
+
 <script>
-//import { uuid } from "uuid";
 export default{
     name:"TareasAdd",
     data(){
@@ -26,8 +26,7 @@ export default{
             }; 
            
             this.title = '';            
-            this.$emit('add-tarea', newTarea)
-            // console.log(newTarea)
+            this.$emit('add-tarea', newTarea)            
 
         },
          randomKey() {
@@ -48,6 +47,20 @@ input{
     padding: 10px;
     outline: none;
     border: solid 1px #ccc;
-    width: 100%;
+    width: 85%;
+}
+#binsertar{
+    margin: 10px;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    background-color: #ccc;
+    color: black;
+}
+
+#binsertar:hover{
+    background-color: #020b81;
+    color: white;
+
 }
 </style>

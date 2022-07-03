@@ -5,7 +5,6 @@
 
   <div id="main-container">    
       <PruebaTarea @envia-texto="buscarTarea"/>
-      
       <TareasAdd @add-tarea="addTarea" />        
       <h2>
       Tareas:
@@ -111,8 +110,8 @@ body{
   width: 100%;
 }
 
-h2{
-  padding: 0 10px;
+h2{  
+  padding: 0 5px;
   text-align: center;
 }
 </style>

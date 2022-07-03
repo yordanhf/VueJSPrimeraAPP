@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="tareaup">
         <div v-for="tareas in tareasList" v-bind:key="tareas.id" >
         <TareasItem v-bind:tarea="tareas" 
         @eliminar-tarea="enviarTarea"
@@ -30,4 +30,7 @@
 </script>
 
 <style>
+#tareaup{
+    border-top: solid 1px #ccc;
+}
 </style>

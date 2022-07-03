@@ -15,8 +15,7 @@
 <script>
 export default{
     name: "TareasItem",
-    props: ["tarea"]
-    
+    props: ["tarea"],  
     
     }
 </script>
